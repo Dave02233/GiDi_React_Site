@@ -1,0 +1,23 @@
+:root {
+  font-size: 16px;
+  --bg-primary: hsl(0, 0%, 4%);
+  --bg-card: hsl(0, 0%, 10%);
+  --text-primary: hsl(0, 0%, 100%);
+  --text-highlight: hsl(206, 100%, 64%);
+  --text-secondary: hsl(0, 0%, 69%);
+  --brand-primary: hsl(206, 98%, 60%);
+}
+
+
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+
+  background-color: var(--bg-primary);
+}
