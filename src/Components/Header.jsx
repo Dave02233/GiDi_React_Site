@@ -8,6 +8,15 @@ export const Header = () => {
     const [isClosing, setIsClosing] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
+    const closeMenu = () => {
+        if (!isMenuOpen) return;
+        setIsClosing(true);
+        setTimeout(() => {
+            setIsMenuOpen(false);
+            setIsClosing(false);
+        }, 300);
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 100) {
@@ -23,15 +32,20 @@ export const Header = () => {
 
     function toggleMenu() {
         if (isMenuOpen) {
-            setIsClosing(true);
-            setTimeout(() => {
-                setIsMenuOpen(false);
-                setIsClosing(false);
-            }, 300);
+            closeMenu();
         } else {
             setIsMenuOpen(true);
         }
     }
+
+    const handleNavClick = (event, targetId) => {
+        event.preventDefault();
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        closeMenu();
+    };
 
     return (
         <>
@@ -52,10 +66,9 @@ export const Header = () => {
             {isMenuOpen && (
                 <nav className={`dropdown-menu ${isClosing ? 'closing' : ''} ${isScrolled ? 'scrolled' : ''}`}>
                     <ul>
-                        <li><a href="#servizi">Servizi</a></li>
-                        <li><a href="#assistenza">Assistenza</a></li>
-                        <li><a href="#presentazione">Presentazione</a></li>
-                        <li><a href="#contatti">Contatti</a></li>
+                        <li><a href="#servizi" onClick={(event) => handleNavClick(event, '#servizi')}>Servizi</a></li>
+                        <li><a href="#assistenza" onClick={(event) => handleNavClick(event, '#assistenza')}>Assistenza</a></li>
+                        <li><a href="#presentazione" onClick={(event) => handleNavClick(event, '#presentazione')}>Presentazione</a></li>
                     </ul>
                 </nav>
             )}

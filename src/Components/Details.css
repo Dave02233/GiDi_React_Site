@@ -1,0 +1,139 @@
+@import url(../index.css);
+
+
+.details-container {
+    width: min(75rem, 100%);
+    margin: clamp(3rem, 8vw, 5rem) auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.75rem, 5vw, 3rem);
+}
+
+.detail-section {
+    --detail-accent: 215 92% 60%;
+    position: relative;
+    padding: clamp(2rem, 4vw, 2.75rem);
+    border-radius: 14px;
+    background-color: var(--bg-card);
+    background-image: var(--detail-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
+    will-change: transform, opacity;
+    scroll-margin-top: clamp(100px, 12vw, 180px);
+}
+
+.detail-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.7) 50%, var(--bg-card) 85%);
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+.detail-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.detail-section.detail-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.detail-section.detail-visible:hover,
+.detail-section.detail-visible:focus-within {
+    transform: translateY(-10px);
+    box-shadow:
+        0 10px 30px rgba(50, 152, 253, 0.2),
+        0 0 0 1px hsla(var(--detail-accent) / 0.45);
+}
+
+.detail-section.detail-visible:hover::before,
+.detail-section.detail-visible:focus-within::before {
+    opacity: 0.9;
+}
+
+.detail-brand {
+    color: var(--text-highlight);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.detail-keyword {
+    color: var(--text-highlight);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.detail-section h2 {
+    font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    color: hsl(var(--detail-accent));
+}
+
+.detail-section h2::after {
+    content: '';
+    display: block;
+    width: clamp(2.5rem, 6vw, 4rem);
+    height: 0.2rem;
+    margin-top: 0.7rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, hsla(var(--detail-accent) / 0.8), rgba(255, 255, 255, 0));
+}
+
+.detail-section p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+#automazione {
+    --detail-accent: 204 100% 65%;
+    --detail-bg-image: url('/section1Image.jpg');
+}
+
+#informatica {
+    --detail-accent: 278 98% 70%;
+    --detail-bg-image: url('/section2Image.jpg');
+}
+
+#robotica {
+    --detail-accent: 33 100% 64%;
+    --detail-bg-image: url('/section3Image.jpg');
+}
+
+@media (max-width: 640px) {
+    .details-container {
+        padding: 0 1rem;
+    }
+
+    .detail-section {
+        text-align: center;
+        scroll-margin-top: 96px;
+    }
+
+    .detail-section h2::after {
+        margin-inline: auto;
+    }
+}
