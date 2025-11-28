@@ -1,11 +1,25 @@
 import './Header.css';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const Header = () => {
     
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     function toggleMenu() {
         if (isMenuOpen) {
@@ -21,9 +35,9 @@ export const Header = () => {
 
     return (
         <>
-            <header className='header-container'>
+            <header className={`header-container ${isScrolled ? 'scrolled' : ''}`}>
                 <div />
-                <div className="header-title">
+                <div className={`header-title ${isScrolled ? 'scrolled' : ''}`}>
                     <h1>GI.DI. Automazione</h1>
                 </div>
                 <div className='menu-button'>
@@ -36,7 +50,7 @@ export const Header = () => {
                 
             </header>
             {isMenuOpen && (
-                <nav className={`dropdown-menu ${isClosing ? 'closing' : ''}`}>
+                <nav className={`dropdown-menu ${isClosing ? 'closing' : ''} ${isScrolled ? 'scrolled' : ''}`}>
                     <ul>
                         <li><a href="#servizi">Servizi</a></li>
                         <li><a href="#assistenza">Assistenza</a></li>

@@ -1,0 +1,106 @@
+@import url(../index.css);
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 320px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.7) 50%, var(--bg-card) 80%);
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.card-1 {
+    background-image: url('/card1Image.jpg');
+}
+
+.card-2 {
+    background-image: url('/card2Image.jpg');
+}
+
+.card-3 {
+    background-image: url('/card3Image.jpg');
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(50, 152, 253, 0.2);
+}
+
+.card h3 {
+    color: var(--text-primary);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+    flex-grow: 1;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.card button {
+    background-color: var(--brand-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card a:hover button,
+.card button:hover {
+    background-color: var(--text-highlight);
+    transform: scale(1.05);
+}
+
+.card a:active button,
+.card button:active {
+    transform: scale(0.98);
+}
+
+
