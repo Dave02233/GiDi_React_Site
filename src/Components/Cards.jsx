@@ -5,7 +5,9 @@ const scrollToSection = (event, targetSelector) => {
     const target = document.querySelector(targetSelector);
     if (!target) return;
 
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const OFFSET = 450; //Cristo dio, qui andrà cambiato in base al device mi sa
+    const targetPosition = target.getBoundingClientRect().top - OFFSET;
+    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
 };
 
 export const Cards = () => {
