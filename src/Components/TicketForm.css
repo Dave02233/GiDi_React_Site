@@ -183,12 +183,80 @@
 	transform: translateY(0);
 }
 
+.ticket-form__button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none;
+}
+
+.ticket-form__feedback {
+	margin-top: 18px;
+	text-align: center;
+	font-size: 0.95rem;
+}
+
+.ticket-form__feedback--success {
+	color: #4ade80;
+}
+
+.ticket-form__feedback--error {
+	color: #f87171;
+}
+
+@media (max-width: 1024px) {
+	.ticket-form__wrapper {
+		flex-direction: column;
+		gap: 36px;
+	}
+
+	.ticket-form__intro,
+	.ticket-form__card {
+		flex: 1 1 100%;
+	}
+}
+
 @media (max-width: 768px) {
 	.ticket-form {
-		padding: 60px 16px;
+		padding: 56px 16px;
+	}
+
+	.ticket-form__wrapper {
+		gap: 28px;
+	}
+
+	.ticket-form__chips {
+		gap: 8px;
 	}
 
 	.ticket-form__card {
 		padding: 24px;
+	}
+
+	.ticket-form__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.ticket-form__button {
+		margin-top: 20px;
+	}
+}
+
+@media (max-width: 480px) {
+	.ticket-form {
+		padding: 48px 12px;
+	}
+
+	.ticket-form__eyebrow {
+		letter-spacing: 0.2rem;
+		font-size: 0.85rem;
+	}
+
+	.ticket-form__chips span {
+		font-size: 0.8rem;
+		padding: 5px 14px;
+	}
+
+	.ticket-form__card {
+		padding: 20px;
 	}
 }

@@ -88,3 +88,18 @@
         letter-spacing: 0.04em;
     }
 }
+
+@media (max-width: 480px) {
+    .presentazione-container {
+        padding: 2.5rem 1rem;
+    }
+
+    .presentazione-card {
+        padding: 1.5rem;
+        gap: 1.25rem;
+    }
+
+    .presentazione-card video {
+        border-radius: 10px;
+    }
+}

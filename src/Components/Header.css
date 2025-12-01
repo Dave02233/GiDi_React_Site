@@ -5,6 +5,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,9 +80,10 @@
 
 .dropdown-menu {
     position: fixed;
-    top: 3rem;
+    top: var(--header-height);
     left: 0;
     width: 100%;
+    box-sizing: border-box;
     background-color: var(--bg-card);
     border-bottom: 0.125rem solid var(--brand-primary);
     animation: slideDown 0.3s ease-out;
@@ -147,5 +149,75 @@
     to {
         opacity: 0;
         transform: translateY(-0.625rem);
+    }
+}
+
+@media (max-width: 1024px) {
+    .header-container.scrolled {
+        width: 70%;
+        left: 15%;
+    }
+
+    .dropdown-menu.scrolled {
+        width: 70%;
+        left: 15%;
+    }
+
+    .header-title h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        justify-content: space-between;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .header-container.scrolled {
+        width: 100%;
+        left: 0;
+        border-radius: 0;
+    }
+
+    .menu-button {
+        position: static;
+        margin-right: 0;
+    }
+
+    .header-title h1 {
+        font-size: 1.6rem;
+    }
+    
+    .header-title.scrolled h1 {
+        font-size: 1.4rem;
+    }
+
+    .dropdown-menu,
+    .dropdown-menu.scrolled {
+        width: 100%;
+        left: 0;
+        border-radius: 0 0 1rem 1rem;
+        top: var(--header-height);
+    }
+
+    .dropdown-menu a {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title h1 {
+        font-size: 1.3rem;
+    }
+
+    .header-title.scrolled h1 {
+        font-size: 1.2rem;
+    }
+
+    .menu-button img {
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }

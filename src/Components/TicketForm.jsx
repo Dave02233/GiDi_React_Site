@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import './TicketForm.css';
+import { sendTicketMail } from '../Functions/Mailer.js';
 
 const departmentOptions = [
   { value: '', label: 'Seleziona il reparto' },
@@ -53,9 +55,39 @@ const formFields = [
 ];
 
 export const TicketForm = () => {
-  const handleSubmit = (event) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState(null);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Aggiungere funzione mailer di Daniele
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    const getValue = (key) => data.get(key)?.toString().trim();
+    const payload = {
+      userEmail: getValue('userEmail'),
+      telefono: getValue('telefono'),
+      azienda: getValue('azienda'),
+      reparto: data.get('reparto'),
+      oggetto: getValue('oggetto'),
+      messaggio: getValue('messaggio'),
+    };
+
+    setIsSubmitting(true);
+    setFeedback(null);
+
+    try {
+      await sendTicketMail(payload);
+      setFeedback({ type: 'success', message: 'Richiesta inviata correttamente. Ti ricontatteremo al più presto.' });
+      form.reset();
+      const repartoSelect = form.querySelector('#reparto');
+      if (repartoSelect) repartoSelect.value = '';
+    } catch (error) {
+      console.error('EmailJS error', error);
+      setFeedback({ type: 'error', message: 'Si è verificato un errore durante l\'invio. Riprova tra qualche minuto.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -122,9 +154,19 @@ export const TicketForm = () => {
               ></textarea>
             </div>
           </div>
-          <button type="submit" id="submitTicket" className="ticket-form__button">
-            Invia richiesta
+          <button
+            type="submit"
+            id="submitTicket"
+            className="ticket-form__button"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Invio in corso…' : 'Invia richiesta'}
           </button>
+          {feedback && (
+            <p className={`ticket-form__feedback ticket-form__feedback--${feedback.type}`}>
+              {feedback.message}
+            </p>
+          )}
         </form>
       </div>
     </section>

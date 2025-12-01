@@ -8,6 +8,9 @@
     padding: 40px 20px;
     flex-wrap: wrap;
     scroll-margin-top: 140px;
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .card {
@@ -15,6 +18,7 @@
     border-radius: 12px;
     padding: 30px;
     max-width: 320px;
+    width: 100%;
     min-height: 400px;
     display: flex;
     flex-direction: column;
@@ -26,6 +30,7 @@
     background-repeat: no-repeat;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
 
 .card::before {
@@ -102,6 +107,56 @@
 .card a:active button,
 .card button:active {
     transform: scale(0.98);
+}
+
+@media (max-width: 1024px) {
+    .cards-container {
+        gap: 24px;
+        padding: 36px 16px;
+    }
+
+    .card {
+        max-width: 280px;
+        min-height: 360px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column;
+        align-items: stretch;
+        scroll-margin-top: 110px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: none;
+        min-height: unset;
+        padding: 24px;
+    }
+
+    .card h3 {
+        font-size: 1.5rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+
+    .card button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-container {
+        padding: 28px 12px;
+        gap: 20px;
+    }
+
+    .card {
+        padding: 20px;
+    }
 }
 
 

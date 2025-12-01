@@ -8,12 +8,14 @@
     display: flex;
     flex-direction: column;
     gap: clamp(1.75rem, 5vw, 3rem);
+    box-sizing: border-box;
 }
 
 .detail-section {
     --detail-accent: 215 92% 60%;
     position: relative;
     padding: clamp(2rem, 4vw, 2.75rem);
+    width: 100%;
     border-radius: 14px;
     background-color: var(--bg-card);
     background-image: var(--detail-bg-image);
@@ -32,6 +34,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
     will-change: transform, opacity;
     scroll-margin-top: clamp(100px, 12vw, 180px);
+    box-sizing: border-box;
 }
 
 .detail-section::before {
@@ -123,6 +126,43 @@
     --detail-bg-image: url('/section3Image.jpg');
 }
 
+@media (max-width: 1024px) {
+    .details-container {
+        width: min(65rem, 100%);
+        margin: clamp(2.5rem, 6vw, 4rem) auto;
+    }
+
+    .detail-section {
+        padding: clamp(1.75rem, 4vw, 2.25rem);
+        min-height: 220px;
+    }
+
+    .detail-section p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .details-container {
+        padding: 0 1.25rem;
+        gap: 1.5rem;
+    }
+
+    .detail-section {
+        align-items: center;
+        text-align: center;
+        padding: 1.75rem;
+    }
+
+    .detail-section h2::after {
+        margin-inline: auto;
+    }
+
+    .detail-section p {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 640px) {
     .details-container {
         padding: 0 1rem;
@@ -131,9 +171,15 @@
     .detail-section {
         text-align: center;
         scroll-margin-top: 96px;
+        padding: 1.5rem;
     }
 
     .detail-section h2::after {
         margin-inline: auto;
+    }
+
+    .detail-section p {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 }

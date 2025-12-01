@@ -6,20 +6,34 @@
   --text-highlight: hsl(206, 100%, 64%);
   --text-secondary: hsl(0, 0%, 69%);
   --brand-primary: hsl(206, 98%, 60%);
+  --header-height: 88px;
 }
-
-
 
 html {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   padding: 0;
   margin: 0;
-  padding-top: 80px;
-
+  padding-top: var(--header-height);
   background-color: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 15px;
+    --header-height: 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    font-size: 14px;
+    --header-height: 60px;
+  }
 }
