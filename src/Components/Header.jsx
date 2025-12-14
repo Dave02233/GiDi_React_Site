@@ -51,7 +51,7 @@ export const Header = () => {
     <>
       <header className={`header-container ${isScrolled ? 'scrolled' : ''}`}>
         <div className={`header-title ${isScrolled ? 'scrolled' : ''}`}>
-          <h1>GI.DI. Automazione</h1>
+          <h1>XX. Automazione</h1>
         </div>
         <div className='menu-button'>
           {!isMenuOpen ? (

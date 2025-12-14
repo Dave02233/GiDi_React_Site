@@ -1,9 +1,9 @@
 import emailjs from '@emailjs/browser';
 
-const SERVICE_ID = 'service_2a6aamc';
-const TEMPLATE_ID = 'template_xlpbtbk';
-const PUBLIC_KEY = 'VGroSQxILhuGqSxLU';
-const DEFAULT_RECIPIENT = 'daniele.zucco@gidiautomazione.it';
+const SERVICE_ID = 'servaamc';
+const TEMPLATE_ID = 'tempbtbk';
+const PUBLIC_KEY = 'VGroSxLU';
+const DEFAULT_RECIPIENT = 'daniele.zucco@.it';
 
 let isInitialized = false;
 

@@ -21,11 +21,11 @@ export const Contacts = () => {
             <span className="footer__underline" aria-hidden="true"></span>
           </h3>
           <address>
-            <p>Via Volta 94</p>
-            <p>20832 Desio (MB)</p>
+            <p>Via Volta xx</p>
+            <p>xxxxx Desio (MB)</p>
             <p>Italia</p>
-            <a href="mailto:info@gidiautomazione.it">info@gidiautomazione.it</a>
-            <a href="tel:+390362624113">+39 0362 624113</a>
+            <a href="mailto:info@xautomazione.it">info@xautomazione.it</a>
+            <a href="tel:+39xxxxxxx">+39 xxxx xxxx</a>
           </address>
         </div>
 
@@ -49,7 +49,7 @@ export const Contacts = () => {
       </div>
 
       <hr />
-      <p className="footer__copyright">GI.DI. Automazione S.r.l. © {new Date().getFullYear()}</p>
+      <p className="footer__copyright">XX. Automazione S.r.l. © {new Date().getFullYear()} - Progetto demo a scopo di portfolio | Dati non reali</p>
     </footer>
   );
 };
