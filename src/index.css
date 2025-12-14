@@ -6,7 +6,7 @@
   --text-highlight: hsl(206, 100%, 64%);
   --text-secondary: hsl(0, 0%, 69%);
   --brand-primary: hsl(206, 98%, 60%);
-  --header-height: 88px;
+  --header-height: 55px;
 }
 
 html {
