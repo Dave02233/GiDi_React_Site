@@ -50,7 +50,6 @@ export const Header = () => {
   return (
     <>
       <header className={`header-container ${isScrolled ? 'scrolled' : ''}`}>
-        <div />
         <div className={`header-title ${isScrolled ? 'scrolled' : ''}`}>
           <h1>GI.DI. Automazione</h1>
         </div>
