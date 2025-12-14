@@ -1,16 +1,25 @@
-# React + Vite
+# Sito di Presentazione GiDi Automation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Questo repository contiene il codice sorgente di una pagina di presentazione realizzata con **React** per un'azienda che opera nel settore dell'automazione industriale.
 
-Currently, two official plugins are available:
+> Nota: questo progetto è un sito di presentazione non ufficiale / a scopo dimostrativo. Non rappresenta necessariamente in modo completo o ufficiale l'azienda reale.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
 
-## React Compiler
+Il sito è pubblicato tramite **GitHub Pages** ed è raggiungibile al seguente indirizzo:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔗 https://dave02233.github.io/GiDi_React_Site/
 
-## Expanding the ESLint configuration
+## Tecnologie utilizzate
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** (create-react-app o Vite, a seconda del setup)
+- **JavaScript/JSX**
+- **HTML5** e **CSS3**
+- Deploy su **GitHub Pages**
+
+## Funzionalità principali
+
+- Layout moderno e responsivo
+- Sezioni di presentazione dell’azienda (chi siamo, servizi, contatti, ecc.)
+- Stile grafico pensato per il settore dell’automazione industriale
+- Navigazione semplice e intuitiva
